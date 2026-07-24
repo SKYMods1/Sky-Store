@@ -3,89 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sky Store</title>
+    <title>Yusif Diaa | SKY Mods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background-color: #0f172a;
-            color: #ffffff;
-            text-align: center;
-            padding: 40px 20px;
+        :root {
+            --sky-bg: #0b1329;
+            --card-bg: #16223f;
+            --accent-sky: #38bdf8;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            
+            /* Dimensions & Spacing Rules */
+            --padding-element: 16px;
+            --margin-card: 24px;
+            --radius-card: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            scroll-behavior: smooth;
         }
-        h1 { color: #38bdf8; margin-bottom: 10px; }
-        p { color: #94a3b8; }
-        
+
+        body {
+            background-color: var(--sky-bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Navbar */
+        nav {
+            width: 100%;
+            max-width: 800px;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .brand {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .brand span {
+            color: var(--accent-sky);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .nav-links a {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-sky);
+        }
+
+        /* Main Container */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: var(--margin-card);
+        }
+
+        /* Large Cards */
         .card {
-            background: #1e293b;
-            border-radius: 16px;
-            padding: 24px;
-            max-width: 400px;
-            margin: 24px auto;
-            border: 1px solid #334155;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            text-align: inherit;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-card);
+            padding: var(--margin-card);
+            display: flex;
+            flex-direction: column;
+            gap: var(--padding-element);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
-        
-        .btn {
-            display: inline-block;
-            background-color: #38bdf8;
-            color: #0f172a;
-            padding: 10px 20px;
-            border-radius: 8px;
+
+        /* Hero Card */
+        .hero-title h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .hero-title span {
+            color: var(--accent-sky);
+        }
+
+        .hero-desc {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Social Follow Buttons */
+        .social-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-social {
+            flex: 1;
+            min-width: 200px;
+            padding: 14px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .btn-telegram {
+            background-color: #229ED9;
+            color: #ffffff;
+        }
+
+        .btn-linkedin {
+            background-color: #0A66C2;
+            color: #ffffff;
+        }
+
+        .btn-social:active {
+            transform: scale(0.98);
+        }
+
+        /* Ad Placeholder Box */
+        .ad-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 0.85rem;
+        }
+
+        /* App Details Section (SKYKeyboard) */
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .app-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--sky-bg);
+            border: 1px solid var(--accent-sky);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--accent-sky);
+            flex-shrink: 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .feature-list li {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list li i {
+            color: var(--accent-sky);
+        }
+
+        .btn-download {
+            background: var(--accent-sky);
+            color: #0b1329;
+            text-align: center;
+            padding: 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+
+        /* About & Privacy Cards */
+        .section-heading {
+            font-size: 1.2rem;
+            color: var(--accent-sky);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Footer */
+        footer {
+            width: 100%;
+            padding: 32px 16px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            margin-top: auto;
         }
     </style>
 </head>
 <body>
 
-    <h1 id="title">مرحباً بك في Sky Store</h1>
-    <p id="subtitle">متجر التطبيقات والمشاريع الخاصة بي</p>
+    <!-- Header Navigation -->
+    <nav>
+        <a href="#" class="brand">Yusif Diaa <span>| SKY Mods</span></a>
+        <div class="nav-links">
+            <a href="#about">عن المطور</a>
+            <a href="#apps">التطبيقات</a>
+            <a href="#privacy">الخصوصية</a>
+        </div>
+    </nav>
 
-    <div class="card">
-        <h3 id="appTitle">تطبيق Sky Mod</h3>
-        <p id="appDesc">أحدث إصدار من التطبيق مع تحسينات الأداء والواجهة.</p>
-        <a href="#" class="btn" id="downloadBtn">تحميل الآن</a>
+    <div class="container">
+
+        <!-- Hero Card: General Intro -->
+        <div class="card">
+            <div class="hero-title">
+                <h1>مرحباً بك في عالم <span>SKY Mods</span></h1>
+            </div>
+            <p class="hero-desc">
+                منصة متخصصة لتطوير ونشر التطبيقات والنسخ المعدلة بأعلى معايير الأمان والجماليات. يتم تصميم وتطوير كافة المشاريع بأسلوب عصري واحترافي بواسطة المطور <strong>Yusif Diaa</strong>.
+            </p>
+            
+            <!-- Follow Links (Telegram & LinkedIn) -->
+            <div class="social-buttons">
+                <a href="https://t.me/ModsSKY" target="_blank" class="btn-social btn-telegram">
+                    <i class="fa-brands fa-telegram"></i> متابعة قناة التليجرام
+                </a>
+                <a href="https://www.linkedin.com/in/yusif-diaa-b51335349" target="_blank" class="btn-social btn-linkedin">
+                    <i class="fa-brands fa-linkedin"></i> حساب LinkedIn
+                </a>
+            </div>
+        </div>
+
+        <!-- App Details Card: SKYKeyboard Showcase -->
+        <div class="card" id="apps">
+            
+            <!-- Ad Space Placeholder (مساحة إعلانية مستقبلياً) -->
+            <div class="ad-box">
+                <i class="fa-solid fa-rectangle-ad"></i> مساحة إعلانية (سيتم تفعيلها لاحقاً)
+            </div>
+
+            <div class="app-header">
+                <div class="app-icon">
+                    <i class="fa-solid fa-keyboard"></i>
+                </div>
+                <div>
+                    <h2>SKYKeyboard</h2>
+                    <span style="color: var(--accent-sky); font-size: 0.85rem;">قريباً - Under Development</span>
+                </div>
+            </div>
+
+            <p class="hero-desc">
+                كيبورد مخصص بتصميم إنسيابي جذاب وميزات متقدمة تتيح لك تجربة كتابة سريعة ومريحة مع اختصارات وثيمات مخصصة.
+            </p>
+
+            <ul class="feature-list">
+                <li><i class="fa-solid fa-check"></i> واجهة مستخدم (UI) عصرية ومريحة للعين.</li>
+                <li><i class="fa-solid fa-check"></i> ثيمات واختصارات مخصصة لتسهيل الكتابة.</li>
+                <li><i class="fa-solid fa-check"></i> أداء سريع بدون إعلانات مزعجة أو بطء.</li>
+            </ul>
+
+            <a href="#" class="btn-download" onclick="alert('التطبيق تحت التطوير وسيتم رفعه فور الانتهاء منه!'); return false;">
+                <i class="fa-solid fa-download"></i> تحميل SKYKeyboard (قريباً)
+            </a>
+        </div>
+
+        <!-- About Developer Card -->
+        <div class="card" id="about">
+            <h3 class="section-heading"><i class="fa-solid fa-user-gear"></i> عن المطور (Yusif Diaa)</h3>
+            <p class="hero-desc">
+                أنا <strong>Yusif Diaa</strong>، مطور مهتم بتطوير وتعديل تطبيقات الأندرويد وبناء واجهات المستخدم (UI/UX). أهدف دائماً لتقديم نسخ محسّنة تجمع بين الأداء العالي والتصميم الأنيق الذي يلبي احتياجات المستخدمين.
+            </p>
+        </div>
+
+        <!-- Privacy & Terms Card -->
+        <div class="card" id="privacy">
+            <h3 class="section-heading"><i class="fa-solid fa-shield-halved"></i> سياسة الخصوصية وحقوق النشر</h3>
+            <p class="hero-desc">
+                جميع الحقوق محفوظة لمشروع <strong>SKY Mods &copy; 2026</strong>. نلتزم بحماية خصوصية الزوار، وجميع الملفات المعروضة آمنة وتخضع للفحص المستمر قبل النشر.
+            </p>
+        </div>
+
     </div>
 
-    <script>
-        // 1. تحديد النصوص باللغات المختلفة
-        const translations = {
-            ar: {
-                title: "مرحباً بك في Sky Store",
-                subtitle: "متجر التطبيقات والمشاريع الخاصة بي",
-                appTitle: "تطبيق Sky Mod",
-                appDesc: "أحدث إصدار من التطبيق مع تحسينات الأداء والواجهة.",
-                downloadBtn: "تحميل الآن",
-                dir: "rtl"
-            },
-            en: {
-                title: "Welcome to Sky Store",
-                subtitle: "My Official Apps & Projects Store",
-                appTitle: "Sky Mod App",
-                appDesc: "The latest version of the app with performance and UI improvements.",
-                downloadBtn: "Download Now",
-                dir: "ltr"
-            }
-        };
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Yusif Diaa - SKY Mods. All rights reserved.</p>
+    </footer>
 
-        // 2. معرفة لغة نظام المستخدم/المتصفح
-        const userLanguage = navigator.language || navigator.userLanguage;
-
-        // 3. اختبار إذا كانت اللغة تبدأ بـ "ar" (عربي)، وإلا يتم تحويلها إلى الإنجليزية تلقائياً
-        const lang = userLanguage.startsWith('ar') ? 'ar' : 'en';
-
-        // 4. تطبيق النصوص واتجاه الصفحة بناءً على اللغة
-        document.getElementById('htmlTag').setAttribute('dir', translations[lang].dir);
-        document.getElementById('htmlTag').setAttribute('lang', lang);
-
-        document.getElementById('title').innerText = translations[lang].title;
-        document.getElementById('subtitle').innerText = translations[lang].subtitle;
-        document.getElementById('appTitle').innerText = translations[lang].appTitle;
-        document.getElementById('appDesc').innerText = translations[lang].appDesc;
-        document.getElementById('downloadBtn').innerText = translations[lang].downloadBtn;
-    </script>
 </body>
 </html>
