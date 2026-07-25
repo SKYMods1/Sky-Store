@@ -14,7 +14,6 @@
             --text-sub: #94a3b8;
             --border-color: rgba(255, 255, 255, 0.08);
             
-            /* Dimensions & Spacing Rules */
             --padding-element: 16px;
             --margin-card: 24px;
             --radius-card: 20px;
@@ -35,6 +34,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            top: 0 !important; /* إلغاء الشريط العلوي لمترجم جوجل */
+        }
+
+        /* اخفاء عناصر جوجل الترجمة الزائدة */
+        .goog-te-banner-frame, .skiptranslate {
+            display: none !important;
+        }
+        #google_translate_element {
+            display: none;
         }
 
         /* Navbar */
@@ -85,7 +93,7 @@
             gap: var(--margin-card);
         }
 
-        /* Large Cards */
+        /* Cards */
         .card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -97,7 +105,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        /* Hero Card */
         .hero-title h1 {
             font-size: 1.8rem;
             margin-bottom: 8px;
@@ -114,7 +121,7 @@
             line-height: 1.6;
         }
 
-        /* Social Follow Buttons */
+        /* Buttons */
         .social-buttons {
             display: flex;
             gap: 16px;
@@ -133,24 +140,12 @@
             justify-content: center;
             gap: 10px;
             font-size: 0.9rem;
-            transition: transform 0.2s, opacity 0.2s;
         }
 
-        .btn-telegram {
-            background-color: #229ED9;
-            color: #ffffff;
-        }
+        .btn-telegram { background-color: #229ED9; color: #ffffff; }
+        .btn-linkedin { background-color: #0A66C2; color: #ffffff; }
 
-        .btn-linkedin {
-            background-color: #0A66C2;
-            color: #ffffff;
-        }
-
-        .btn-social:active {
-            transform: scale(0.98);
-        }
-
-        /* Ad Placeholder Box */
+        /* Ad Box */
         .ad-box {
             background: rgba(255, 255, 255, 0.03);
             border: 1px dashed var(--border-color);
@@ -161,7 +156,7 @@
             font-size: 0.85rem;
         }
 
-        /* App Details Section (SKYKeyboard) */
+        /* App Showcase */
         .app-header {
             display: flex;
             align-items: center;
@@ -197,9 +192,7 @@
             gap: 10px;
         }
 
-        .feature-list li i {
-            color: var(--accent-sky);
-        }
+        .feature-list li i { color: var(--accent-sky); }
 
         .btn-download {
             background: var(--accent-sky);
@@ -216,7 +209,6 @@
             font-size: 1rem;
         }
 
-        /* About & Privacy Cards */
         .section-heading {
             font-size: 1.2rem;
             color: var(--accent-sky);
@@ -225,7 +217,6 @@
             gap: 8px;
         }
 
-        /* Footer */
         footer {
             width: 100%;
             padding: 32px 16px;
@@ -239,34 +230,36 @@
 </head>
 <body>
 
+    <!-- Hidden element for Google Translate Engine -->
+    <div id="google_translate_element"></div>
+
     <!-- Header Navigation -->
     <nav>
         <a href="#" class="brand">Yusif Diaa <span>| SKY Mods</span></a>
         <div class="nav-links">
-            <a href="#about">عن المطور</a>
-            <a href="#apps">التطبيقات</a>
-            <a href="#privacy">الخصوصية</a>
+            <a href="#about" id="navAbout">عن المطور</a>
+            <a href="#apps" id="navApps">التطبيقات</a>
+            <a href="#privacy" id="navPrivacy">الخصوصية</a>
         </div>
     </nav>
 
     <div class="container">
 
-        <!-- Hero Card: General Intro -->
+        <!-- Hero Card -->
         <div class="card">
             <div class="hero-title">
-                <h1>مرحباً بك في عالم <span>SKY Mods</span></h1>
+                <h1 id="heroHeading">مرحباً بك في عالم <span>SKY Mods</span></h1>
             </div>
-            <p class="hero-desc">
+            <p class="hero-desc" id="heroDesc">
                 منصة متخصصة لتطوير ونشر التطبيقات والنسخ المعدلة بأعلى معايير الأمان والجماليات. يتم تصميم وتطوير كافة المشاريع بأسلوب عصري واحترافي بواسطة المطور <strong>Yusif Diaa</strong>.
             </p>
             
-            <!-- Follow Links (Telegram & LinkedIn) -->
             <div class="social-buttons">
                 <a href="https://t.me/ModsSKY" target="_blank" class="btn-social btn-telegram">
-                    <i class="fa-brands fa-telegram"></i> متابعة قناة التليجرام
+                    <i class="fa-brands fa-telegram"></i> <span>متابعة قناة التليجرام</span>
                 </a>
                 <a href="https://www.linkedin.com/in/yusif-diaa-b51335349" target="_blank" class="btn-social btn-linkedin">
-                    <i class="fa-brands fa-linkedin"></i> حساب LinkedIn
+                    <i class="fa-brands fa-linkedin"></i> <span>حساب LinkedIn</span>
                 </a>
             </div>
         </div>
@@ -274,7 +267,6 @@
         <!-- App Details Card: SKYKeyboard Showcase -->
         <div class="card" id="apps">
             
-            <!-- Ad Space Placeholder (مساحة إعلانية مستقبلياً) -->
             <div class="ad-box">
                 <i class="fa-solid fa-rectangle-ad"></i> مساحة إعلانية (سيتم تفعيلها لاحقاً)
             </div>
@@ -285,7 +277,7 @@
                 </div>
                 <div>
                     <h2>SKYKeyboard</h2>
-                    <span style="color: var(--accent-sky); font-size: 0.85rem;">قريباً - Under Development</span>
+                    <span style="color: var(--accent-sky); font-size: 0.85rem;">قريباً - قيد التطوير</span>
                 </div>
             </div>
 
@@ -294,19 +286,19 @@
             </p>
 
             <ul class="feature-list">
-                <li><i class="fa-solid fa-check"></i> واجهة مستخدم (UI) عصرية ومريحة للعين.</li>
-                <li><i class="fa-solid fa-check"></i> ثيمات واختصارات مخصصة لتسهيل الكتابة.</li>
-                <li><i class="fa-solid fa-check"></i> أداء سريع بدون إعلانات مزعجة أو بطء.</li>
+                <li><i class="fa-solid fa-check"></i> <span>واجهة مستخدم (UI) عصرية ومريحة للعين.</span></li>
+                <li><i class="fa-solid fa-check"></i> <span>ثيمات واختصارات مخصصة لتسهيل الكتابة.</span></li>
+                <li><i class="fa-solid fa-check"></i> <span>أداء سريع بدون إعلانات مزعجة أو بطء.</span></li>
             </ul>
 
             <a href="#" class="btn-download" onclick="alert('التطبيق تحت التطوير وسيتم رفعه فور الانتهاء منه!'); return false;">
-                <i class="fa-solid fa-download"></i> تحميل SKYKeyboard (قريباً)
+                <i class="fa-solid fa-download"></i> <span>تحميل SKYKeyboard (قريباً)</span>
             </a>
         </div>
 
         <!-- About Developer Card -->
         <div class="card" id="about">
-            <h3 class="section-heading"><i class="fa-solid fa-user-gear"></i> عن المطور (Yusif Diaa)</h3>
+            <h3 class="section-heading"><i class="fa-solid fa-user-gear"></i> <span>عن المطور (Yusif Diaa)</span></h3>
             <p class="hero-desc">
                 أنا <strong>Yusif Diaa</strong>، مطور مهتم بتطوير وتعديل تطبيقات الأندرويد وبناء واجهات المستخدم (UI/UX). أهدف دائماً لتقديم نسخ محسّنة تجمع بين الأداء العالي والتصميم الأنيق الذي يلبي احتياجات المستخدمين.
             </p>
@@ -314,7 +306,7 @@
 
         <!-- Privacy & Terms Card -->
         <div class="card" id="privacy">
-            <h3 class="section-heading"><i class="fa-solid fa-shield-halved"></i> سياسة الخصوصية وحقوق النشر</h3>
+            <h3 class="section-heading"><i class="fa-solid fa-shield-halved"></i> <span>سياسة الخصوصية وحقوق النشر</span></h3>
             <p class="hero-desc">
                 جميع الحقوق محفوظة لمشروع <strong>SKY Mods &copy; 2026</strong>. نلتزم بحماية خصوصية الزوار، وجميع الملفات المعروضة آمنة وتخضع للفحص المستمر قبل النشر.
             </p>
@@ -326,6 +318,32 @@
     <footer>
         <p>&copy; 2026 Yusif Diaa - SKY Mods. All rights reserved.</p>
     </footer>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ar',
+                includedLanguages: '', // يدعم كل لغات العالم تلقائياً
+                autoDisplay: false
+            }, 'google_translate_element');
+
+            // قراءة لغة جهاز المستخدم
+            let userLang = (navigator.language || navigator.userLanguage || 'ar').split('-')[0];
+            
+            // لو اللغة مش عربي، شغل الترجمة التلقائية للغة الجهاز
+            if (userLang !== 'ar') {
+                setTimeout(function() {
+                    var select = document.querySelector('.goog-te-combo');
+                    if (select) {
+                        select.value = userLang;
+                        select.dispatchEvent(new Event('change'));
+                    }
+                }, 1000);
+            }
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
