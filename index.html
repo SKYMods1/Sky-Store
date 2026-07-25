@@ -1,349 +1,223 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" id="htmlTag">
+<html lang="ar" dir="rtl" id="htmlTag" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yusif Diaa | SKY Mods</title>
+    <title>SKY World | Premium Apps</title>
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --sky-bg: #0b1329;
-            --card-bg: #16223f;
-            --accent-sky: #38bdf8;
-            --text-main: #f8fafc;
-            --text-sub: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.08);
-            
-            --padding-element: 16px;
-            --margin-card: 24px;
-            --radius-card: 20px;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, -apple-system, sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--sky-bg);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            top: 0 !important; /* إلغاء الشريط العلوي لمترجم جوجل */
-        }
-
-        /* اخفاء عناصر جوجل الترجمة الزائدة */
-        .goog-te-banner-frame, .skiptranslate {
-            display: none !important;
-        }
-        #google_translate_element {
-            display: none;
-        }
-
-        /* Navbar */
-        nav {
-            width: 100%;
-            max-width: 800px;
-            padding: 16px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .brand {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--text-main);
-            text-decoration: none;
-        }
-
-        .brand span {
-            color: var(--accent-sky);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 16px;
-        }
-
-        .nav-links a {
-            color: var(--text-sub);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-sky);
-        }
-
-        /* Main Container */
-        .container {
-            width: 100%;
-            max-width: 800px;
-            padding: 24px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: var(--margin-card);
-        }
-
-        /* Cards */
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-card);
-            padding: var(--margin-card);
-            display: flex;
-            flex-direction: column;
-            gap: var(--padding-element);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .hero-title h1 {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .hero-title span {
-            color: var(--accent-sky);
-        }
-
-        .hero-desc {
-            color: var(--text-sub);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Buttons */
-        .social-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn-social {
-            flex: 1;
-            min-width: 200px;
-            padding: 14px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 0.9rem;
-        }
-
-        .btn-telegram { background-color: #229ED9; color: #ffffff; }
-        .btn-linkedin { background-color: #0A66C2; color: #ffffff; }
-
-        /* Ad Box */
-        .ad-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px dashed var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            color: var(--text-sub);
-            font-size: 0.85rem;
-        }
-
-        /* App Showcase */
-        .app-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .app-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--sky-bg);
-            border: 1px solid var(--accent-sky);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: var(--accent-sky);
-            flex-shrink: 0;
-        }
-
-        .feature-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .feature-list li {
-            color: var(--text-sub);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .feature-list li i { color: var(--accent-sky); }
-
-        .btn-download {
-            background: var(--accent-sky);
-            color: #0b1329;
-            text-align: center;
-            padding: 14px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 1rem;
-        }
-
-        .section-heading {
-            font-size: 1.2rem;
-            color: var(--accent-sky);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        footer {
-            width: 100%;
-            padding: 32px 16px;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-sub);
-            font-size: 0.85rem;
-            margin-top: auto;
-        }
-    </style>
+    <!-- CSS File Link -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Hidden element for Google Translate Engine -->
-    <div id="google_translate_element"></div>
-
-    <!-- Header Navigation -->
+    <!-- Navbar -->
     <nav>
-        <a href="#" class="brand">Yusif Diaa <span>| SKY Mods</span></a>
+        <a href="#" class="brand">
+            <i class="fa-solid fa-cloud" style="color: var(--accent-purple);"></i> SKY<span>+</span>
+        </a>
+
         <div class="nav-links">
-            <a href="#about" id="navAbout">عن المطور</a>
+            <a href="#" class="active" id="navHome">الرئيسية</a>
             <a href="#apps" id="navApps">التطبيقات</a>
-            <a href="#privacy" id="navPrivacy">الخصوصية</a>
+            <a href="#about" id="navAbout">عن المشروع</a>
+            <a href="#community" id="navCommunity">المجتمع</a>
+        </div>
+
+        <div class="nav-actions">
+            <button class="theme-btn" id="themeToggle" title="تغيير الثيم">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
+            <a href="https://t.me/ModsSKY" target="_blank" class="btn-discord">
+                <i class="fa-brands fa-telegram"></i> <span id="btnCommunity">الانضمام للقناة</span>
+            </a>
         </div>
     </nav>
 
-    <div class="container">
-
-        <!-- Hero Card -->
-        <div class="card">
-            <div class="hero-title">
-                <h1 id="heroHeading">مرحباً بك في عالم <span>SKY Mods</span></h1>
+    <!-- Hero Section -->
+    <section class="hero-container">
+        <div class="hero-left">
+            <div class="welcome-badge">
+                <i class="fa-solid fa-download"></i> <span id="welcomeBadge">WELCOME TO SKY WORLD</span>
             </div>
+            <h1 class="hero-title" id="heroTitle">
+                Premium Apps. <br>Built <span>Different.</span>
+            </h1>
             <p class="hero-desc" id="heroDesc">
-                منصة متخصصة لتطوير ونشر التطبيقات والنسخ المعدلة بأعلى معايير الأمان والجماليات. يتم تصميم وتطوير كافة المشاريع بأسلوب عصري واحترافي بواسطة المطور <strong>Yusif Diaa</strong>.
+                تطبيقات أندرويد عالية الجودة والموثوقية، مصممة خصيصاً بتجربة مستخدم عصرية بواسطة المطور <strong>YUS!F D!VV</strong>.
             </p>
-            
-            <div class="social-buttons">
-                <a href="https://t.me/ModsSKY" target="_blank" class="btn-social btn-telegram">
-                    <i class="fa-brands fa-telegram"></i> <span>متابعة قناة التليجرام</span>
+            <div class="hero-btns">
+                <a href="#apps" class="btn-primary" id="btnExplore">
+                    تصفح التطبيقات <i class="fa-solid fa-arrow-left"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/yusif-diaa-b51335349" target="_blank" class="btn-social btn-linkedin">
-                    <i class="fa-brands fa-linkedin"></i> <span>حساب LinkedIn</span>
+                <a href="https://www.linkedin.com/in/yusif-diaa-b51335349" target="_blank" class="btn-secondary">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
                 </a>
+            </div>
+            <div class="trust-badges">
+                <span><i class="fa-solid fa-shield-halved"></i> آمن ومفحوص</span>
+                <span><i class="fa-solid fa-arrows-rotate"></i> تحديثات مستمرة</span>
+                <span><i class="fa-solid fa-ban"></i> بدون إعلانات مزعجة</span>
             </div>
         </div>
 
-        <!-- App Details Card: SKYKeyboard Showcase -->
-        <div class="card" id="apps">
-            
-            <div class="ad-box">
-                <i class="fa-solid fa-rectangle-ad"></i> مساحة إعلانية (سيتم تفعيلها لاحقاً)
-            </div>
-
-            <div class="app-header">
-                <div class="app-icon">
-                    <i class="fa-solid fa-keyboard"></i>
+        <!-- Phone Mockups -->
+        <div class="hero-right">
+            <div class="phone-mockup featured">
+                <div class="app-circle-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
                 </div>
                 <div>
-                    <h2>SKYKeyboard</h2>
-                    <span style="color: var(--accent-sky); font-size: 0.85rem;">قريباً - قيد التطوير</span>
+                    <h3>SKYWhatsApp</h3>
+                    <span class="version-tag">v3.1</span>
                 </div>
+                <p style="font-size:0.75rem; color:var(--text-sub);">الخصوصية. الحرية. التصميم السائل.</p>
+                <a href="#apps" class="mockup-btn">تحميل الآن <i class="fa-solid fa-arrow-down"></i></a>
             </div>
 
-            <p class="hero-desc">
-                كيبورد مخصص بتصميم إنسيابي جذاب وميزات متقدمة تتيح لك تجربة كتابة سريعة ومريحة مع اختصارات وثيمات مخصصة.
-            </p>
+            <div class="phone-mockup">
+                <div class="app-circle-icon" style="color:var(--accent-blue); border-color:var(--accent-blue);">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+                <div>
+                    <h3>SKYSettings</h3>
+                    <span class="version-tag">v1.3.0</span>
+                </div>
+                <p style="font-size:0.75rem; color:var(--text-sub);">تخصيص كامل للهاتف.</p>
+                <a href="#apps" class="mockup-btn">تحميل الآن <i class="fa-solid fa-arrow-down"></i></a>
+            </div>
+        </div>
+    </section>
 
-            <ul class="feature-list">
-                <li><i class="fa-solid fa-check"></i> <span>واجهة مستخدم (UI) عصرية ومريحة للعين.</span></li>
-                <li><i class="fa-solid fa-check"></i> <span>ثيمات واختصارات مخصصة لتسهيل الكتابة.</span></li>
-                <li><i class="fa-solid fa-check"></i> <span>أداء سريع بدون إعلانات مزعجة أو بطء.</span></li>
-            </ul>
+    <!-- Stats Bar -->
+    <section class="stats-section">
+        <div class="stats-card">
+            <div class="stat-box">
+                <div class="stat-icon"><i class="fa-solid fa-download"></i></div>
+                <div class="stat-info">
+                    <h3>10K+</h3>
+                    <p id="stat1">إجمالي التحميلات</p>
+                </div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-icon"><i class="fa-solid fa-cubes"></i></div>
+                <div class="stat-info">
+                    <h3>5+</h3>
+                    <p id="stat2">تطبيقات مخصصة</p>
+                </div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                <div class="stat-info">
+                    <h3>2K+</h3>
+                    <p id="stat3">مستخدم نشط</p>
+                </div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+                <div class="stat-info">
+                    <h3>4.9</h3>
+                    <p id="stat4">تقييم المستخدمين</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <a href="#" class="btn-download" onclick="alert('التطبيق تحت التطوير وسيتم رفعه فور الانتهاء منه!'); return false;">
-                <i class="fa-solid fa-download"></i> <span>تحميل SKYKeyboard (قريباً)</span>
-            </a>
+    <!-- Apps Section -->
+    <section class="apps-section" id="apps">
+        <div class="section-header">
+            <div>
+                <h2 id="secTitle">التطبيقات المميزة</h2>
+                <p id="secSub">أفضل النسخ المطورة بخصائص متقدمة</p>
+            </div>
         </div>
 
-        <!-- About Developer Card -->
-        <div class="card" id="about">
-            <h3 class="section-heading"><i class="fa-solid fa-user-gear"></i> <span>عن المطور (Yusif Diaa)</span></h3>
-            <p class="hero-desc">
-                أنا <strong>Yusif Diaa</strong>، مطور مهتم بتطوير وتعديل تطبيقات الأندرويد وبناء واجهات المستخدم (UI/UX). أهدف دائماً لتقديم نسخ محسّنة تجمع بين الأداء العالي والتصميم الأنيق الذي يلبي احتياجات المستخدمين.
-            </p>
-        </div>
+        <div class="apps-grid">
+            <div class="app-card">
+                <div class="app-card-top">
+                    <div class="app-card-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="app-title-box">
+                        <h4>SKYWhatsApp <span class="version-tag">جديد</span></h4>
+                        <span>v3.1</span>
+                    </div>
+                </div>
+                <p class="app-desc" id="app1Desc">نسخة واتساب معدلة بتصميم iOS أنيق وإعدادات خصوصية حصرية.</p>
+                <a href="https://devuploads.com/xxxxxxxxx" target="_blank" class="btn-card-download">
+                    <span>تحميل التطبيق</span> <i class="fa-solid fa-download"></i>
+                </a>
+            </div>
 
-        <!-- Privacy & Terms Card -->
-        <div class="card" id="privacy">
-            <h3 class="section-heading"><i class="fa-solid fa-shield-halved"></i> <span>سياسة الخصوصية وحقوق النشر</span></h3>
-            <p class="hero-desc">
-                جميع الحقوق محفوظة لمشروع <strong>SKY Mods &copy; 2026</strong>. نلتزم بحماية خصوصية الزوار، وجميع الملفات المعروضة آمنة وتخضع للفحص المستمر قبل النشر.
-            </p>
-        </div>
+            <div class="app-card">
+                <div class="app-card-top">
+                    <div class="app-card-icon"><i class="fa-solid fa-keyboard"></i></div>
+                    <div class="app-title-box">
+                        <h4>SKYKeyboard</h4>
+                        <span>v1.0</span>
+                    </div>
+                </div>
+                <p class="app-desc" id="app2Desc">كيبورد احترافي بتصميم إنسيابي واختصارات سريعة للكتابة.</p>
+                <a href="#" class="btn-card-download dev-alert">
+                    <span>قريباً</span> <i class="fa-solid fa-clock"></i>
+                </a>
+            </div>
 
-    </div>
+            <div class="app-card">
+                <div class="app-card-top">
+                    <div class="app-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="app-title-box">
+                        <h4>SKYPrivacy</h4>
+                        <span>v1.2.1</span>
+                    </div>
+                </div>
+                <p class="app-desc" id="app3Desc">أداة مخصصة لحماية الخصوصية وتأمين التطبيقات المكسورة.</p>
+                <a href="#" class="btn-card-download dev-alert">
+                    <span>قريباً</span> <i class="fa-solid fa-clock"></i>
+                </a>
+            </div>
+
+            <div class="app-card">
+                <div class="app-card-top">
+                    <div class="app-card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <div class="app-title-box">
+                        <h4>SKYTheme</h4>
+                        <span>v1.0.3</span>
+                    </div>
+                </div>
+                <p class="app-desc" id="app4Desc">متجر ثيمات وأيقونات مخصصة لكل واجهات أندرويد.</p>
+                <a href="#" class="btn-card-download dev-alert">
+                    <span>قريباً</span> <i class="fa-solid fa-clock"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community-section" id="community">
+        <div class="community-card">
+            <div class="community-left">
+                <div class="community-icon"><i class="fa-solid fa-users"></i></div>
+                <div>
+                    <h3 id="comTitle">انضم إلى مجتمع SKY Community</h3>
+                    <p id="comSub" style="color:var(--text-sub); font-size:0.9rem;">كن أول من يتلقى التحديثات والأخبار والدعم الفني المباشر.</p>
+                </div>
+            </div>
+            <div class="community-btns">
+                <a href="https://t.me/ModsSKY" target="_blank" class="btn-primary">
+                    <i class="fa-brands fa-telegram"></i> متابعة التليجرام
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Yusif Diaa - SKY Mods. All rights reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2026 SKY World. All rights reserved.</p>
+            <p>Made with <i class="fa-solid fa-heart" style="color:#ef4444;"></i> by <strong>YUS!F D!VV</strong></p>
+        </div>
     </footer>
 
-    <!-- Google Translate Script -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'ar',
-                includedLanguages: '', // يدعم كل لغات العالم تلقائياً
-                autoDisplay: false
-            }, 'google_translate_element');
-
-            // قراءة لغة جهاز المستخدم
-            let userLang = (navigator.language || navigator.userLanguage || 'ar').split('-')[0];
-            
-            // لو اللغة مش عربي، شغل الترجمة التلقائية للغة الجهاز
-            if (userLang !== 'ar') {
-                setTimeout(function() {
-                    var select = document.querySelector('.goog-te-combo');
-                    if (select) {
-                        select.value = userLang;
-                        select.dispatchEvent(new Event('change'));
-                    }
-                }, 1000);
-            }
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+    <!-- JavaScript File Link -->
+    <script src="script.js"></script>
 </body>
 </html>
