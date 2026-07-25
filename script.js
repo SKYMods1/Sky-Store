@@ -25,7 +25,7 @@ const translations = {
         navHome: "الرئيسية", navApps: "التطبيقات", navAbout: "عن المشروع", navCommunity: "المجتمع",
         btnCommunity: "انضم للقناة", welcomeBadge: "WELCOME TO SKY WORLD",
         heroDesc: "تطبيقات أندرويد عالية الجودة والموثوقية، مصممة خصيصاً بتجربة مستخدم عصرية بواسطة المطور <strong>YUS!F D!VV</strong>.",
-        btnExplore: "تصفح التطبيقات", stat1: "إجمالي التحميلات", stat2: "تطبيقات مخصصة", stat3: "مستخدم نشط", stat4: "تقييم المستخدمين",
+        btnExplore: "تصفح التطبيقات",
         secTitle: "التطبيقات المميزة", secSub: "أفضل النسخ المطورة بخصائص متقدمة",
         app1Desc: "نسخة واتساب معدلة بتصميم iOS أنيق وإعدادات خصوصية حصرية.",
         app2Desc: "كيبورد احترافي بتصميم إنسيابي واختصارات سريعة للكتابة.",
@@ -36,7 +36,7 @@ const translations = {
         navHome: "Home", navApps: "Apps", navAbout: "About", navCommunity: "Community",
         btnCommunity: "Join Channel", welcomeBadge: "WELCOME TO SKY WORLD",
         heroDesc: "High quality, powerful and secure applications made for Android. By <strong>YUS!F D!VV</strong>.",
-        btnExplore: "Explore Apps", stat1: "Downloads", stat2: "Apps", stat3: "Users", stat4: "Rating",
+        btnExplore: "Explore Apps",
         secTitle: "Featured Apps", secSub: "Powerful apps with premium experience",
         app1Desc: "Enhanced WhatsApp with premium features and max privacy.",
         app2Desc: "Custom keyboard with modern UI and smooth layout.",
@@ -57,10 +57,6 @@ document.getElementById('navCommunity').innerText = translations[userLang].navCo
 document.getElementById('btnCommunity').innerText = translations[userLang].btnCommunity;
 document.getElementById('welcomeBadge').innerText = translations[userLang].welcomeBadge;
 document.getElementById('heroDesc').innerHTML = translations[userLang].heroDesc;
-document.getElementById('stat1').innerText = translations[userLang].stat1;
-document.getElementById('stat2').innerText = translations[userLang].stat2;
-document.getElementById('stat3').innerText = translations[userLang].stat3;
-document.getElementById('stat4').innerText = translations[userLang].stat4;
 document.getElementById('secTitle').innerText = translations[userLang].secTitle;
 document.getElementById('secSub').innerText = translations[userLang].secSub;
 document.getElementById('app1Desc').innerText = translations[userLang].app1Desc;
